@@ -5,7 +5,7 @@ if (!isset($_SESSION["loggedin"])) {
 }
 ?>
 <!DOCTYPE html>
-    <html lang="sv">
+<html lang="sv">
 
     <head>
         <meta charset="utf-8">
@@ -48,7 +48,6 @@ if (!isset($_SESSION["loggedin"])) {
                         <input class="form-control" type="email" name="epost" required>
                         <label>Mobil</label>
                         <input class="form-control" type="text" name="mobil">
-                        <button class="btn btn-primary login-btn" name="registrera">Registrera</button>
                     </div>
                     <div>
                         <label>Kön</label>
@@ -63,6 +62,7 @@ if (!isset($_SESSION["loggedin"])) {
                         <input id="losen" class="form-control" type="password" name="losen" required>
                         <label>Upprepa lösenord</label>
                         <input id="ulosen" class="form-control" type="password" name="ulosen" required>
+                        <label></label><button class="btn btn-primary login-btn" name="registrera">Registrera</button>
                     </div>
                 </form>
             </main>

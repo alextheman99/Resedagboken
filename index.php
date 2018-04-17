@@ -4,7 +4,7 @@ if (!isset($_SESSION["loggedin"]) || isset($_GET["loggaut"])) {
     $_SESSION["loggedin"] = false;
 }
 ?>
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="sv">
 
     <head>
@@ -25,14 +25,14 @@ if (!isset($_SESSION["loggedin"]) || isset($_GET["loggaut"])) {
                 <nav>
                     <ul>
                         <?php
-                        if (!$_SESSION["loggedin"]) {
-                           echo "<li><a href=\"#myModal\" class=\"trigger-btn\" data-toggle=\"modal\">Logga in</a></li>";
-                           echo "<li><a href=\"skapa_konto.php\">Skapa konto</a></li>";
-                        } else {
-                           echo "<li><a class=\"aktuell\" href=\"#\">Min sida</a></li>";
-                        }
-                            ?>
-                            <li><a href="#">Andras resor</a></li>
+if (!$_SESSION["loggedin"]) {
+    echo "<li><a href=\"#myModal\" class=\"trigger-btn\" data-toggle=\"modal\">Logga in</a></li>";
+    echo "<li><a href=\"skapa_konto.php\">Skapa konto</a></li>";
+} else {
+    echo "<li><a class=\"aktuell\" href=\"#\">Min sida</a></li>";
+}
+?>
+                           <li><a href="#">Andras resor</a></li>
                             <li>
                                 <form>
                                     <input class="form-control" type="text" name="sok" placeholder="Sök">
@@ -60,9 +60,9 @@ if (!isset($_SESSION["loggedin"]) || isset($_GET["loggaut"])) {
             </footer>
         </div>
         <?php
-    include "includes/inloggningsruta.php";
-    include "includes/frameworks.php";
+include "includes/inloggningsruta.php";
+include "includes/frameworks.php";
 ?>
-    </body>
+   </body>
 
     </html>
