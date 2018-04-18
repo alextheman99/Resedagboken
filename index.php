@@ -29,7 +29,7 @@ if (!$_SESSION["loggedin"]) {
     echo "<li><a href=\"#myModal\" class=\"trigger-btn\" data-toggle=\"modal\">Logga in</a></li>";
     echo "<li><a href=\"skapa_konto.php\">Skapa konto</a></li>";
 } else {
-    echo "<li><a class=\"aktuell\" href=\"#\">Min sida</a></li>";
+    echo "<li><a class=\"aktuell\" href=\"min_sida.php\">Min sida</a></li>";
 }
 ?>
                            <li><a href="#">Andras resor</a></li>
@@ -63,6 +63,7 @@ if (!$_SESSION["loggedin"]) {
 include "includes/inloggningsruta.php";
 include "includes/frameworks.php";
 ?>
+        <script src="js/login.js"></script>
    </body>
 
     </html>

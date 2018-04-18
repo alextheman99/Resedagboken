@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || isset($_GET["loggaut"])) {
+    $_SESSION["loggedin"] = false;
+}
 include_once '../../config_db/konfig_db_resedagboken.php';
 
 // Vi försöker öppna en anslutningen mot vår databas
@@ -28,6 +32,7 @@ if ($anamn && $losen) {
     if (password_verify($losen, $row['hash'])) {
         echo "Ja";
         $_SESSION["loggedin"] = true;
+        $_SESSION["anamn"] = $anamn;
     } else {
         echo "Nej";
     }

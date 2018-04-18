@@ -22,6 +22,7 @@ $(document).ready(function () {
                     losen: password
                 },
                 success: function (data) {
+                    console.log (data);
                     if (data == "Ja") {
                         $("#fel").text("Inloggning ok!");
                         window.location = "min_sida.php";

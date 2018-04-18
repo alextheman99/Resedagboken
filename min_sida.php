@@ -4,8 +4,8 @@ if (!isset($_SESSION["loggedin"])) {
     $_SESSION["loggedin"] = false;
 }
 ?>
-<!DOCTYPE html>
-<html lang="sv">
+    <!DOCTYPE html>
+    <html lang="sv">
 
     <head>
         <meta charset="utf-8">
@@ -16,28 +16,9 @@ if (!isset($_SESSION["loggedin"])) {
         <title>Resedagboken för dom ressugna</title>
         <link rel="stylesheet" href="styles/style.css">
     </head>
-<?php
+    <?php
     include '../../config_db/konfig_db_resedagboken.php';
-?>
-    <body>
-        <div class="kontainer">
-            <header>
-                <h1><a href="index.php">Resedagboken</a></h1>
-                <nav>
-                    <ul>
-                        <li><a class="aktuell" href="#">Min sida</a></li>
-                        <li><a href="index.php?loggaut=1">Logga ut</a></li>
-                        <li><a href="#">Andras resor</a></li>
-                        <li>
-                            <form>
-                                <input class="form-control" type="text" name="sok" placeholder="Sök">
-                            </form>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main class="kolumner">
-<?php
+
     /* Ta emot data från skapa_konto.php och lagra i databasen */
     /* Ta emot inloggningsuppgifter och kolla om korrekt */
     /* Visa medlemssidan */
@@ -79,7 +60,9 @@ if (!isset($_SESSION["loggedin"])) {
             if (!$result) {
                 die("<p>Det blev något fel i databasfrågan</p>");
             } else {
-                echo "<p>Användaren är registrerad!</p>";
+                /*echo "<p>Användaren är registrerad!</p>";*/
+                $_SESSION["loggedin"] = true;
+                $_SESSION["anamn"] = $anamn;
             }
 
             // Stänger ned anslutningen
@@ -87,18 +70,59 @@ if (!isset($_SESSION["loggedin"])) {
         }
     }
 ?>
-            </main>
-            <footer class="kolumner">
-                <div>
-                    <h4>Info</h4>
-                    <p>...</p>
-                </div>
-                <div>
-                    <h4>Kontakt</h4>
-                    <p>...</p>
-                </div>
-            </footer>
-        </div>
-    </body>
+
+        <body>
+            <div class="kontainer">
+                <header>
+                    <h1><a href="index.php">Resedagboken</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a class="aktuell" href="#">Min sida</a></li>
+                            <li><a href="index.php?loggaut=1">Logga ut</a></li>
+                            <li><a href="#">Andras resor</a></li>
+                            <li>
+                                <form>
+                                    <input class="form-control" type="text" name="sok" placeholder="Sök">
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main class="kolumner_minsida">
+                    <nav>
+                        <h3><?php echo $_SESSION["anamn"] ?></h3>
+                        <ul>
+                            <li>
+                                <a class="aktuell" href="">Mina resor</a>
+                            </li>
+                            <li>
+                                <a href="">Skapa resa</a>
+                            </li>
+                            <li>
+                                <a href="">Mina inlägg</a>
+                            </li>
+                            <li>
+                                <a href="">Fotoalbum</a>
+                            </li>
+                            <li>
+                                <a href="">Ladda upp</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </main>
+                <footer class="kolumner">
+                    <div>
+                        <h4>Info</h4>
+                        <p>...</p>
+                    </div>
+                    <div>
+                        <h4>Kontakt</h4>
+                        <p>...</p>
+                    </div>
+                </footer>
+            </div>
+        </body>
 
     </html>
+AIzaSyDiwlwA1sj1PIazEGeaPMK8S5rab6Hk6VA

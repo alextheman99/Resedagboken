@@ -1,28 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Patua+One');
 
 /* Enkel CSS-reset */
+
 html {
     box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
-body, h1, h2, h3, h4, h5, h6, p, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
     margin: 0;
     padding: 0;
 }
-
 body {
     background: url("../images/bg2.jpg");
     background-size: cover;
 }
-
 .kontainer {
     font-family: 'Open Sans', sans-serif;
     width: 960px;
     margin: auto;
 }
-
 header {
     background: rgba(255, 127, 7, 0.8);
     padding: 15px 30px 30px 30px;
@@ -31,20 +39,17 @@ header h1 {
     font-family: 'Patua One', sans-serif;
     font-size: 80px;
     color: #16466C;
-/*    text-shadow: 2px 2px 0 #FFF;*/
+    /*    text-shadow: 2px 2px 0 #FFF;*/
 }
-header h1 a, header h1 a:hover {
+header h1 a,
+header h1 a:hover {
     color: #16466C;
     text-decoration: none;
     -webkit-text-stroke: 2px #FFF;
     text-stroke: 2px #FFF;
 }
-header nav {
-
-}
-header nav ul {
-
-}
+header nav {}
+header nav ul {}
 header nav li {
     display: inline-block;
 }
@@ -54,30 +59,25 @@ header nav a {
     font-size: 25px;
     padding: 0 20px 0 0;
 }
-header nav a:hover, header nav a.aktuell {
+header nav a:hover,
+header nav a.aktuell {
     color: #FF0000;
     text-decoration-line: underline;
 }
-header nav input {
-
-}
-
+header nav input {}
 main {
     background: rgba(84, 211, 242, 0.76);
 }
 main img {
     border: 25px solid #FFF;
 }
-main h2 {
-
-}
-main p {
-
-}
+main h2 {}
+main p {}
 main label {
     width: 150px;
 }
-main input.form-control, main select.form-control {
+main input.form-control,
+main select.form-control {
     margin-bottom: 15px;
     display: inline;
     width: 250px;
@@ -87,6 +87,27 @@ main button {
     margin-left: 5px;
 }
 
+/* Utseende på vertikala menyn i Min sida*/
+
+main nav {
+    background: #BBC6BB;
+    padding: 30px;
+}
+main nav h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #16466C;
+}
+man nav li {
+    list-style-type: none;
+}
+main nav a {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+    padding: 0 20px 0 0;
+}
 footer {
     background: rgba(255, 127, 7, 0.8);
 }
@@ -94,13 +115,15 @@ footer h4 {
     font-size: 20px;
     color: #16466C;
 }
-footer p {
-
-}
-
+footer p {}
 .kolumner {
     display: grid;
     grid-template-columns: auto auto;
     padding: 30px;
     grid-gap: 30px;
+}
+.kolumner_minsida {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-gap: 0;
 }
