@@ -77,9 +77,9 @@ if (!isset($_SESSION["loggedin"])) {
                     <h1><a href="index.php">Resedagboken</a></h1>
                     <nav>
                         <ul>
-                            <li><a class="aktuell" href="#">Min sida</a></li>
+                            <li><a class="aktuell" href="min_sida_mina_resor.php">Min sida</a></li>
                             <li><a href="index.php?loggaut=1">Logga ut</a></li>
-                            <li><a href="#">Andras resor</a></li>
+                            <li><a href="andras_resor.php">Andras resor</a></li>
                             <li>
                                 <form>
                                     <input class="form-control" type="text" name="sok" placeholder="Sök">
@@ -93,10 +93,10 @@ if (!isset($_SESSION["loggedin"])) {
                         <h3><?php echo $_SESSION["anamn"] ?></h3>
                         <ul>
                             <li>
-                                <a class="aktuell" href="">Mina resor</a>
+                                <a href="min_sida.php">Mina resor</a>
                             </li>
                             <li>
-                                <a href="">Skapa resa</a>
+                                <a class="aktuell" href="min_sida_skapa_resa.php">Skapa resa</a>
                             </li>
                             <li>
                                 <a href="">Mina inlägg</a>
@@ -109,7 +109,19 @@ if (!isset($_SESSION["loggedin"])) {
                             </li>
                         </ul>
                     </nav>
+                    <form class="" action="" method="post">
+                        <label>Namn</label>
+                        <input class="form-control" type="text" name="namn">
+                        <br>
+                        <label>Beskrivning</label>
+                        <textarea name="beskrivning" rows="8" cols="80"></textarea>
+                        <br>
+                        <label>Privat</label>
+                        <input class="form-control" type="checkbox" name="privat">
+                        <br>
+                        <button>Publicera</button>
 
+                    </form>
                 </main>
                 <footer class="kolumner">
                     <div>
@@ -125,4 +137,3 @@ if (!isset($_SESSION["loggedin"])) {
         </body>
 
     </html>
-AIzaSyDiwlwA1sj1PIazEGeaPMK8S5rab6Hk6VA

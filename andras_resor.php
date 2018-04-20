@@ -4,7 +4,7 @@ if (!isset($_SESSION["loggedin"]) || isset($_GET["loggaut"])) {
     $_SESSION["loggedin"] = false;
 }
 ?>
-   <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="sv">
 
     <head>
@@ -29,10 +29,10 @@ if (!$_SESSION["loggedin"]) {
     echo "<li><a href=\"#myModal\" class=\"trigger-btn\" data-toggle=\"modal\">Logga in</a></li>";
     echo "<li><a href=\"skapa_konto.php\">Skapa konto</a></li>";
 } else {
-    echo "<li><a class=\"aktuell\" href=\"min_sida_mina_resor.php\">Min sida</a></li>";
+    echo "<li><a class=\"aktuell\" href=\"min_sida.php\">Min sida</a></li>";
 }
 ?>
-                           <li><a href="#">Andras resor</a></li>
+                            <li><a href="#">Andras resor</a></li>
                             <li>
                                 <form>
                                     <input class="form-control" type="text" name="sok" placeholder="Sök">
@@ -41,11 +41,8 @@ if (!$_SESSION["loggedin"]) {
                     </ul>
                 </nav>
             </header>
-            <main class="kolumner">
-                <img src="images/mathew-schwartz-354703-unsplash.jpg" alt="Exempel på resa">
-                <div>
-                    <h2>På besök i ett tempel</h2>
-                    <p>Lorem ipsum dolor amet literally flannel coloring book kickstarter 3 wolf moon pok pok. Polaroid iceland drinking vinegar salvia keytar heirloom gentrify health goth hell of adaptogen edison bulb pour-over echo park gluten-free master cleanse. Church-key prism irony authentic pitchfork kinfolk. Portland cardigan single-origin coffee keytar coloring book, listicle bicycle rights kogi. Forage jianbing photo booth everyday carry ugh, readymade bushwick bicycle rights selvage sriracha kinfolk hashtag slow-carb ennui. Direct trade chillwave vexillologist chicharrones gluten-free.</p>
+            <main>
+                <div id="map">
                 </div>
             </main>
             <footer class="kolumner">
@@ -63,7 +60,44 @@ if (!$_SESSION["loggedin"]) {
 include "includes/inloggningsruta.php";
 include "includes/frameworks.php";
 ?>
-        <script src="js/login.js"></script>
-   </body>
+            <script src="js/login.js"></script>
+            <script>
+                function initMap() {
+                    var bounds = new google.maps.LatLngBounds();
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 4,
+                        center: {
+                            lat: 48.864716,
+                            lng: 2.349014
+                        }
+                    });
+                    // Multiple Markers
+
+                    var markers = [
+                        ['Paris', 48.864716, 2.349014],
+                        ['London Eye, London', 51.503454, -0.119562],
+                        ['Vienna', 48.210033, 16.363449]
+                    ];
+
+
+                    // Loop through our array of markers & place each one on the map
+                    for (i = 0; i < markers.length; i++) {
+
+                        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                        bounds.extend(position);
+                        marker = new google.maps.Marker({
+                            position: position,
+                            map: map,
+                            title: markers[i][0]
+                        });
+                    }
+                }
+
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLj0FQepKTy7AsaZdXwDQ2WsW7HF_mFfg&callback=initMap">
+
+
+            </script>
+    </body>
 
     </html>
